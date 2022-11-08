@@ -1,0 +1,59 @@
+<!doctype html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <title>Прогнозирование Модуля упругости при растяжении</title>
+</head>
+
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Прогнозирование Модуля упругости при растяжении:</legend>
+        Ваши данные:
+        <legend>Введите значние Плотность:</legend> 
+        <input name="density" type="float" required><br>
+        <legend>Введите значние Модуль упругости:</legend> 
+        <input name="elastic_modules" type="float" required><br>
+        <legend>Введите значние Количество отвердителя:</legend>
+        <input name="amount_of_hardener" type="float" required><br>
+        <legend>Введите значние Содержание эпоксидных групп:</legend>
+        <input name="epoxy_group_content" type="float" required><br>
+        <legend>Введите значние Температура вспышки:</legend>
+        <input name="flash_point" type="float" required><br>
+        <legend>Введите значние Поверхностная плотность:</legend>
+        <input name="surface_density" type="float" required><br>
+        <legend>Введите значние Потребление смолы:</legend>
+        <input name="resin_consumption" type="float" required><br>
+        <legend>Введите значние Угол нашивки:</legend>
+        <input name="patch_angle" type="float" required><br>
+        <legend>Введите значние Шаг нашивки:</legend>
+        <input name="patch_step" type="float" required><br>
+        <legend>Введите значние Плотность нашивки:</legend>
+        <input name="patch_density" type="float" required><br>
+        <legend>Введите значние Соотношение матрица-напонитель:</legend>
+        <input name="matrix_filler_ratio" type="float" required><br>
+        
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+
+<div class="result" align="center">
+    {% if result %}
+            <br> <legend>Прогнозируемое значение Модуля упругости при растяжении:</legend>
+            <p style="font-size:50px">
+            Значение Модуля упругости при растяжении</p>
+                   <p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
